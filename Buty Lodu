@@ -1,0 +1,206 @@
+#InDev 1.0#
+
+on load:
+	set {_version} to content of file "plugins/Skript/scripts/EasyOX.sk"	
+	set {_v} to index of "##" in {_version}	
+	set {_v2} to subtext of {_version} from character ({_v}+1) to character (length of {_version})	
+	set {_v3} to index of "##" in {_v2}	
+	set {version} to subtext of {_version} from character ({_v}+1) to character ({_v3})	
+	set {_version} to result of connect to "http://pastebin.com/raw.php?i=pACBwvMh"	
+	set {_v} to index of "##" in {_version}	
+	set {_v2} to subtext of {_version} from character ({_v}+1) to character (length of {	version})		
+	set {_v3} to index of "##" in {_v2}	
+	set {version.new} to subtext of {_version} from character ({_v}+1) to character ({_v3})	{version} is not {version.new}:		
+		send "Jest dostepna nowa wersja skryptu! Pobierz ja /update pobierz"
+command /update [<text>]:	
+	trigger:		
+		set {_version} to result of connect to "http://pastebin.com/raw.php?i=pACBwvMh"		
+		set {_v} to index of "##" in {_version}		
+		set {_v2} to subtext of {_version} from character ({_v}+1) to character (length of {_version})			
+		set {_v3} to index of "##" in {_v2}		
+		set {version.new} to subtext of {_version} from character ({_v}+1) to character ({_v3})				
+		arg 1 is "sprawdz":
+			send "Twoja wersja to %{version}%"			
+			send "Najnowsza wersja to %{version.new}%"			
+			{version} is not {version.new}:				
+				send "Jest dostepna nowa wersja"	
+		arg 2 is "pobierz":
+			{version} is not {version.new}:
+				download "http://pastebin.com/raw.php?i=pACBwvMh" to "plugins/Skript/scripts/b2.sk"				
+				send "Pobrano najnowsza wersje!"
+			else:
+				send "Masz juz najnowsza wersje skrypta!"		
+		else:				
+			send "/update sprawdz - sprawdza aktualizacje"			
+			send "/update pobierz - pobiera aktualizacje"
+		stop
+
+#	█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█																																				 ||
+#	█																Config																   █	
+#	▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀	
+
+Options:
+	tag: &c&lDream&a&lD&r&aodatki
+	blok: ice
+	odleglosc: 50	# do usuwania bloku!
+	czas: 4			# czas pomiedzy usuwaniem bloków podaj w sekundach
+	nazwa: &6&lButy &b&lLodu
+	dzwiek: step.snow
+#	▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█																																			 ||
+#																	Crafting															   █
+#	▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+#
+#	█ 1 █ 2 █ 3 █
+#	█ 4 █ 5 █ 6 █
+#	█ 7 █ 8 █ 9 █
+#
+#
+	crating1: air
+	crating2: air
+	crating3: air
+	crating4: air
+	crating5: diamond boots
+	crating6: air
+	crating7: water bucket
+	crating8: water bucket
+	crating9: water bucket
+	
+
+#	█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█																																				 ||
+#	█																ZMIENNE																   █
+#	▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+
+
+
+Variables:
+	{g.%player%} = 0
+	{jg.%block%} = 0
+	{jw.%block%} = 0
+	{wl.%block%} = 0
+	
+	
+	
+
+#	█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█																																				 ||
+#	█																 Komendy															   █
+#	▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+	
+	
+command /bl:
+	permission: bl.sk
+	trigger:
+		give player diamond boots named "{@nazwa}"
+		send "&8[{@tag}&8] &aDostales {@nazwa}" to player
+		
+command /gl:
+	trigger:
+		set {g.%player%} to "1"
+	
+command /gl2:
+	trigger:
+		set {g.%player%} to "0"	
+			
+
+command /run [<player>] [<text>]:
+	permission: run.command
+	trigger:
+		if arg 1 is set:
+			if arg 2 is set:
+				run arg 1 command "%arg 2%" as op
+			
+			
+#	█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█																																				 ||
+#	█															 NIE ZNASZ SIĘ?															   █
+#	█															  NIE RUSZAJ!															   █
+#	▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+		
+on any move:
+	if boots of player is diamond boots named "{@nazwa}":
+		set {bl.%player%} to "1"
+	else:
+		set {bl.%player%} to "0"
+
+on walk on ice:
+	play raw sound "{@dzwiek}" at player with pitch 1 volume 10
+
+
+every {@czas} second:
+	loop all players:
+		loop all blocks in radius {@odleglosc} of loop-player:
+			if loop-block is {@blok}:
+				if {jl.%loop-block%} is "1":
+					set loop-block to water
+					
+every {@czas} second:
+	loop all players:
+		loop all blocks in radius {@odleglosc} of loop-player:
+			if loop-block is glowstone:
+				if {jg.%loop-block%} is "1":
+					set loop-block to water			
+					
+			
+On any move:
+	if {bl.%player%} is "1":
+		loop all blocks in radius 3 of player:
+			if loop-block is water:
+				set loop-block to {@blok}
+				set {jl.%loop-block%} to "1"
+				set {lw.%loop-block%} to location of loop-block
+							
+							
+#	█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█																																				 ||
+#	█																 EFEKTY																   █
+#	█																WIZUALNE															   █
+#	▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+			
+	
+on right click:
+	if tool of player is glowstone named "&6&lPodswietlenie":
+		execute console command "run %player% /gl"
+		remove 1 glowstone named "&6&lPodswietlenie" from player
+			
+on any move:
+	if {g.%player%} is "1":
+		if boots of player is diamond boots named "{@nazwa}":
+			if block below player is ice:
+				set block to glowstone
+				set {jg.%block%} to "1"
+
+on any move:
+	if {g.%player%} is "1":
+		if boots of player is diamond boots named "{@nazwa}":
+			loop all blocks in radius 3 of player:
+				if loop-block is glowstone:
+					set {jg.%loop-block%} to "1"
+
+
+
+on walk on ice:
+	if boots of player is diamond boots named "{@nazwa}":
+		spawn 30 of particle magic crit offset by 0, 0.3, 0 at location of player
+		
+on any move:
+	if player is sprinting:
+		if block below player is ice or glowstone:
+			if boots of player is diamond boots named "{@nazwa}":
+				chance of 30%:
+					damage boots of player by 1
+				
+
+#	█▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█																																				 ||
+#	█																 Crafting															   █
+#	▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+	
+on script load: 
+        register new shaped recipe for diamond boots named "{@nazwa}" using {@crating1}, {@crating2}, {@crating3}, {@crating4}, {@crating5}, {@crating6}, {@crating7}, {@crating8}, {@crating9}
+
+on script load: 
+        register new shaped recipe for glowstone named "&6&lPodswietlenie" using glowstone, glowstone, glowstone, glowstone, glowstone, glowstone, glowstone, glowstone, glowstone
+		
+on craft of glowstone:
+	set {gl.%player%} to "1"
+	
+on right click:
+	if tool of player is glowstone named "&6&lPodswietlenie":
+		execute console command "run %player% /gl"
+		remove 1 glowstone named "&6&lPodswietlenie" from player
