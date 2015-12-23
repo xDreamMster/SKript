@@ -1,4 +1,4 @@
-#InDev 1.0#
+#InDev 10.1#
 
 on load:
 	set {_version} to content of file "plugins/Skript/scripts/EasyOX.sk"	
